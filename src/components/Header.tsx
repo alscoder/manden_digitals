@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { useState, useEffect } from 'react';
@@ -51,19 +52,8 @@ export function Header() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="/" className="flex-shrink-0 relative group flex items-center gap-3">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
-              className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-[#D4AF37] to-[#C19F2F] text-white font-semibold tracking-wide shadow-md"
-              aria-hidden="true"
-            >
-              MD
-            </motion.div>
-            <div className="leading-tight">
-              <span className="block text-lg font-semibold text-neutral-900 dark:text-white">Manden</span>
-              <span className="block text-xs uppercase tracking-[0.25em] text-[#D4AF37]">Digital</span>
-            </div>
+          <Link href="/" className="">
+            <img src={"/logo.png"} alt='MandenDigitals Logo' className='size-48 object-center'/>
           </Link>
 
           {/* Desktop Navigation */}

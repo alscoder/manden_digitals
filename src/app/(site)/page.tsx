@@ -202,7 +202,7 @@ function Home() {
       </section>
 
       {/* Services Overview */}
-      <section className="py-20 bg-white dark:bg-neutral-950 relative overflow-hidden">
+      <section className="py-20 bg-white dark:bg-gradient-to-b dark:from-[#2a150c] dark:via-[#150605] dark:to-[#050404] relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2YwZjBmMCIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-50 dark:opacity-10" />
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -394,14 +394,14 @@ function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-20 overflow-hidden bg-gradient-to-br from-[#3f251d] via-[#2b120d] to-[#120805] text-white dark:from-[#1a0a07] dark:via-[#0f0704] dark:to-[#030202]">
         <div className="absolute inset-0">
           <ImageWithFallback
             src="https://images.unsplash.com/photo-1703355685639-d558d1b0f63e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3b3Jrc3BhY2UlMjBkZXNpZ258ZW58MXx8fHwxNzY4MjMxOTg4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
             alt="Modern Workspace"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-linear-to-r from-[#4A3933]/95 to-[#3A2923]/95" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#4A3933]/90 to-[#3A2923]/90 dark:from-[#1b0b0a]/95 dark:to-[#080403]/95" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

@@ -99,7 +99,7 @@ export default function About() {
       </section>
 
       {/* Company Story */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <motion.h2
@@ -107,7 +107,7 @@ export default function About() {
               whileInView="animate"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className="text-3xl text-neutral-900 mb-6"
+              className="text-3xl text-neutral-900 dark:text-neutral-100 mb-6"
             >
               {t('whoWeAre')}
             </motion.h2>
@@ -116,7 +116,7 @@ export default function About() {
               whileInView="animate"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className="text-neutral-600 leading-relaxed mb-6"
+              className="text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6"
             >
               {t('whoWeAreDesc1')}
             </motion.p>
@@ -125,7 +125,7 @@ export default function About() {
               whileInView="animate"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className="text-neutral-600 leading-relaxed mb-6"
+              className="text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6"
             >
               {t('whoWeAreDesc2')}
             </motion.p>
@@ -134,7 +134,7 @@ export default function About() {
               whileInView="animate"
               viewport={{ once: true }}
               variants={fadeInUp}
-              className="text-neutral-600 leading-relaxed"
+              className="text-neutral-600 dark:text-neutral-400 leading-relaxed"
             >
               {t('whoWeAreDesc3')}
             </motion.p>
@@ -143,7 +143,7 @@ export default function About() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-16 bg-neutral-50">
+      <section className="py-16 bg-neutral-50 dark:bg-neutral-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Mission */}
@@ -153,13 +153,13 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
               whileHover={{ scale: 1.02 }}
-              className="bg-white p-8 rounded-2xl border border-neutral-200 hover:shadow-2xl transition-all duration-300"
+              className="bg-white dark:bg-neutral-900 p-8 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:shadow-2xl transition-all duration-300"
             >
               <div className="w-16 h-16 bg-[#D4AF37]/10 rounded-full flex items-center justify-center mb-6">
                 <Target className="text-[#D4AF37]" size={32} />
               </div>
-              <h3 className="text-2xl text-neutral-900 mb-4">{t('ourMission')}</h3>
-              <p className="text-neutral-600 leading-relaxed">
+              <h3 className="text-2xl text-neutral-900 dark:text-neutral-100 mb-4">{t('ourMission')}</h3>
+              <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
                 {t('ourMissionDesc')}
               </p>
             </motion.div>
@@ -171,13 +171,13 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
               whileHover={{ scale: 1.02 }}
-              className="bg-white p-8 rounded-2xl border border-neutral-200 hover:shadow-2xl transition-all duration-300"
+              className="bg-white dark:bg-neutral-900 p-8 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:shadow-2xl transition-all duration-300"
             >
               <div className="w-16 h-16 bg-[#D4AF37]/10 rounded-full flex items-center justify-center mb-6">
                 <Eye className="text-[#D4AF37]" size={32} />
               </div>
-              <h3 className="text-2xl text-neutral-900 mb-4">{t('ourVision')}</h3>
-              <p className="text-neutral-600 leading-relaxed">
+              <h3 className="text-2xl text-neutral-900 dark:text-neutral-100 mb-4">{t('ourVision')}</h3>
+              <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
                 {t('ourVisionDesc')}
               </p>
             </motion.div>
@@ -186,13 +186,13 @@ export default function About() {
       </section>
 
       {/* Core Values */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl text-neutral-900 mb-12 text-center"
+            className="text-3xl text-neutral-900 dark:text-neutral-100 mb-12 text-center"
           >
             {t('coreValues')}
           </motion.h2>
@@ -219,8 +219,8 @@ export default function About() {
                 >
                   <div className="text-[#D4AF37]">{value.icon}</div>
                 </motion.div>
-                <h3 className="text-neutral-900 mb-3">{value.title}</h3>
-                <p className="text-neutral-600 text-sm">{value.desc}</p>
+                <h3 className="text-neutral-900 dark:text-neutral-100 mb-3">{value.title}</h3>
+                <p className="text-neutral-600 dark:text-neutral-400 text-sm">{value.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -228,13 +228,13 @@ export default function About() {
       </section>
 
       {/* Expertise Section */}
-      <section className="py-16 bg-neutral-50">
+      <section className="py-16 bg-neutral-50 dark:bg-neutral-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl text-neutral-900 mb-12 text-center"
+            className="text-3xl text-neutral-900 dark:text-neutral-100 mb-12 text-center"
           >
             {t('ourExpertise')}
           </motion.h2>
@@ -255,10 +255,10 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -8 }}
-                className="bg-white p-6 rounded-2xl border border-neutral-200 hover:shadow-xl transition-all duration-300"
+                className="bg-white dark:bg-neutral-900 p-6 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:shadow-xl transition-all duration-300"
               >
-                <h3 className="text-neutral-900 mb-3">{expertise.title}</h3>
-                <p className="text-neutral-600 text-sm leading-relaxed">{expertise.desc}</p>
+                <h3 className="text-neutral-900 dark:text-neutral-100 mb-3">{expertise.title}</h3>
+                <p className="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed">{expertise.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -266,7 +266,7 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-[#4A3933] to-[#3A2923] text-white">
+      <section className="py-16 bg-linear-to-r from-[#4A3933] to-[#3A2923] text-white dark:from-[#2b120d] dark:via-[#190a08] dark:to-[#050302]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

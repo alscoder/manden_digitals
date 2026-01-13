@@ -21,9 +21,9 @@ export function TrainingCard({ icon, title, description, duration, level }: Trai
     <motion.div
       whileHover={{ y: -12 }}
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-      className="bg-white dark:bg-neutral-800 rounded-2xl border border-neutral-200 dark:border-neutral-700 overflow-hidden hover:shadow-2xl transition-all duration-300 group"
+      className="bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 rounded-2xl border border-neutral-200 dark:border-neutral-700 overflow-hidden hover:shadow-2xl transition-all duration-300 group"
     >
-      <div className="relative bg-gradient-to-br from-[#4A3933] via-[#3A2923] to-[#2A1913] p-8 text-white overflow-hidden">
+      <div className="relative bg-linear-to-br from-[#4A3933] via-[#3A2923] to-[#2A1913] p-8 text-white overflow-hidden">
         {/* Animated Background Pattern */}
         <motion.div
           animate={{

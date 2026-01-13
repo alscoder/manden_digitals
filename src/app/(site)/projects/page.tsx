@@ -125,7 +125,7 @@ export default function Projects() {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-16 bg-neutral-50">
+      <section className="py-16 bg-neutral-50 dark:bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
@@ -149,13 +149,13 @@ export default function Projects() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-neutral-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl text-neutral-900 mb-12 text-center"
+            className="text-3xl text-neutral-900 dark:text-neutral-100 mb-12 text-center"
           >
             {t('projectSuccess')}
           </motion.h2>
@@ -176,7 +176,7 @@ export default function Projects() {
                 className="text-center"
               >
                 <div className="text-4xl text-[#D4AF37] mb-2">{stat.value}</div>
-                <div className="text-neutral-600">{stat.label}</div>
+                <div className="text-neutral-600 dark:text-neutral-400">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -184,7 +184,7 @@ export default function Projects() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-[#4A3933] to-[#3A2923] text-white">
+      <section className="py-16 bg-linear-to-r from-[#4A3933] to-[#3A2923] text-white dark:from-[#2b120d] dark:via-[#190a08] dark:to-[#050302]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

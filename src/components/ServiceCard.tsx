@@ -14,7 +14,7 @@ export function ServiceCard({ icon, title, description }: ServiceCardProps) {
     <motion.div
       whileHover={{ y: -8, scale: 1.02 }}
       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-      className="bg-white dark:bg-neutral-800 p-6 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:border-[#D4AF37] hover:shadow-2xl transition-all duration-300 group relative overflow-hidden"
+      className="bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 p-6 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:border-[#D4AF37] hover:shadow-2xl transition-all duration-300 group relative overflow-hidden"
     >
       {/* Background Gradient on Hover */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/0 to-[#D4AF37]/0 group-hover:from-[#D4AF37]/5 group-hover:to-transparent transition-all duration-500" />

@@ -93,7 +93,7 @@ export default function Services() {
       </section>
 
       {/* Development Services */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -102,8 +102,8 @@ export default function Services() {
             variants={fadeInUp}
             className="mb-12"
           >
-            <h2 className="text-3xl text-neutral-900 mb-3">{t('developmentServices')}</h2>
-            <p className="text-neutral-600">{t('developmentServicesDesc')}</p>
+            <h2 className="text-3xl text-neutral-900 dark:text-neutral-100 mb-3">{t('developmentServices')}</h2>
+            <p className="text-neutral-600 dark:text-neutral-400">{t('developmentServicesDesc')}</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -127,7 +127,7 @@ export default function Services() {
       </section>
 
       {/* Cloud & SaaS Services */}
-      <section className="py-16 bg-neutral-50">
+      <section className="py-16 bg-neutral-50 dark:bg-neutral-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -136,8 +136,8 @@ export default function Services() {
             variants={fadeInUp}
             className="mb-12"
           >
-            <h2 className="text-3xl text-neutral-900 mb-3">{t('cloudSolutions')}</h2>
-            <p className="text-neutral-600">{t('cloudSolutionsDesc')}</p>
+            <h2 className="text-3xl text-neutral-900 dark:text-neutral-100 mb-3">{t('cloudSolutions')}</h2>
+            <p className="text-neutral-600 dark:text-neutral-400">{t('cloudSolutionsDesc')}</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -161,7 +161,7 @@ export default function Services() {
       </section>
 
       {/* Business Services */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -170,8 +170,8 @@ export default function Services() {
             variants={fadeInUp}
             className="mb-12"
           >
-            <h2 className="text-3xl text-neutral-900 mb-3">{t('businessServices')}</h2>
-            <p className="text-neutral-600">{t('businessServicesDesc')}</p>
+            <h2 className="text-3xl text-neutral-900 dark:text-neutral-100 mb-3">{t('businessServices')}</h2>
+            <p className="text-neutral-600 dark:text-neutral-400">{t('businessServicesDesc')}</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -195,7 +195,7 @@ export default function Services() {
       </section>
 
       {/* IT Solutions */}
-      <section className="py-16 bg-neutral-50">
+      <section className="py-16 bg-neutral-50 dark:bg-neutral-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -204,8 +204,8 @@ export default function Services() {
             variants={fadeInUp}
             className="mb-12"
           >
-            <h2 className="text-3xl text-neutral-900 mb-3">{t('itSupportServices')}</h2>
-            <p className="text-neutral-600">{t('itSupportServicesDesc')}</p>
+            <h2 className="text-3xl text-neutral-900 dark:text-neutral-100 mb-3">{t('itSupportServices')}</h2>
+            <p className="text-neutral-600 dark:text-neutral-400">{t('itSupportServicesDesc')}</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -229,7 +229,7 @@ export default function Services() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-[#4A3933] to-[#3A2923] text-white">
+      <section className="py-16 bg-linear-to-r from-[#4A3933] to-[#3A2923] text-white dark:from-[#2b120d] dark:via-[#190a08] dark:to-[#050302]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

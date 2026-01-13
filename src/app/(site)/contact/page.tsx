@@ -105,7 +105,7 @@ export default function Contact() {
       </section>
 
       {/* Contact Content */}
-      <section className="py-16 bg-neutral-50">
+      <section className="py-16 bg-neutral-50 dark:bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Contact Information */}
@@ -115,9 +115,9 @@ export default function Contact() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="bg-white p-6 rounded-2xl border border-neutral-200 hover:shadow-xl transition-all duration-300"
+                className="bg-white dark:bg-neutral-900 p-6 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:shadow-xl transition-all duration-300"
               >
-                <h3 className="text-neutral-900 mb-6">{t('getInTouchTitle')}</h3>
+                <h3 className="text-neutral-900 dark:text-neutral-100 mb-6">{t('getInTouchTitle')}</h3>
                 
                 <div className="space-y-4">
                   <div className="flex items-start gap-4">
@@ -125,8 +125,8 @@ export default function Contact() {
                       <Mail className="text-[#D4AF37]" size={20} />
                     </div>
                     <div>
-                      <div className="text-sm text-neutral-500 mb-1">{t('email')}</div>
-                      <a href="mailto:info@mandendigital.com" className="text-neutral-900 hover:text-[#D4AF37] transition-colors">
+                      <div className="text-sm text-neutral-500 dark:text-neutral-400 mb-1">{t('email')}</div>
+                      <a href="mailto:info@mandendigital.com" className="text-neutral-900 dark:text-neutral-100 hover:text-[#D4AF37] transition-colors">
                         info@mandendigital.com
                       </a>
                     </div>
@@ -137,8 +137,8 @@ export default function Contact() {
                       <Phone className="text-[#D4AF37]" size={20} />
                     </div>
                     <div>
-                      <div className="text-sm text-neutral-500 mb-1">{t('phone')}</div>
-                      <a href="tel:+1234567890" className="text-neutral-900 hover:text-[#D4AF37] transition-colors">
+                      <div className="text-sm text-neutral-500 dark:text-neutral-400 mb-1">{t('phone')}</div>
+                      <a href="tel:+1234567890" className="text-neutral-900 dark:text-neutral-100 hover:text-[#D4AF37] transition-colors">
                         +1 234 567 8900
                       </a>
                     </div>
@@ -149,8 +149,8 @@ export default function Contact() {
                       <MapPin className="text-[#D4AF37]" size={20} />
                     </div>
                     <div>
-                      <div className="text-sm text-neutral-500 mb-1">{t('location')}</div>
-                      <div className="text-neutral-900">{t('globalServices')}</div>
+                      <div className="text-sm text-neutral-500 dark:text-neutral-400 mb-1">{t('location')}</div>
+                      <div className="text-neutral-900 dark:text-neutral-100">{t('globalServices')}</div>
                     </div>
                   </div>
 
@@ -159,8 +159,8 @@ export default function Contact() {
                       <Clock className="text-[#D4AF37]" size={20} />
                     </div>
                     <div>
-                      <div className="text-sm text-neutral-500 mb-1">{t('businessHours')}</div>
-                      <div className="text-neutral-900 text-sm">
+                      <div className="text-sm text-neutral-500 dark:text-neutral-400 mb-1">{t('businessHours')}</div>
+                      <div className="text-neutral-900 dark:text-neutral-100 text-sm">
                         {t('monFri')}<br />
                         {t('saturday')}
                       </div>
@@ -174,7 +174,7 @@ export default function Contact() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="bg-[#4A3933] text-white p-6 rounded-2xl"
+                className="bg-linear-to-r from-[#4A3933] to-[#3A2923] text-white dark:from-[#2b120d] dark:via-[#190a08] dark:to-[#050302] text-white p-6 rounded-2xl"
               >
                 <MessageSquare className="text-[#D4AF37] mb-4" size={32} />
                 <h3 className="text-white mb-2">{t('quickResponse')}</h3>
@@ -194,14 +194,14 @@ export default function Contact() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="bg-white p-8 rounded-2xl border border-neutral-200 hover:shadow-xl transition-all duration-300"
+                className="bg-white dark:bg-neutral-900 p-8 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:shadow-xl transition-all duration-300"
               >
-                <h3 className="text-2xl text-neutral-900 mb-6">{t('sendMessage')}</h3>
+                <h3 className="text-2xl text-neutral-900 dark:text-neutral-100 mb-6">{t('sendMessage')}</h3>
                 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm text-neutral-700 mb-2">
+                      <label htmlFor="name" className="block text-sm text-neutral-700 dark:text-neutral-300 mb-2">
                         {t('fullName')} *
                       </label>
                       <input
@@ -211,13 +211,13 @@ export default function Contact() {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent outline-none transition-all"
+                        className="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-700 rounded-xl bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent outline-none transition-all"
                         placeholder="John Doe"
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="email" className="block text-sm text-neutral-700 mb-2">
+                      <label htmlFor="email" className="block text-sm text-neutral-700 dark:text-neutral-300 mb-2">
                         {t('emailAddress')} *
                       </label>
                       <input
@@ -227,7 +227,7 @@ export default function Contact() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent outline-none transition-all"
+                        className="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-700 rounded-xl bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent outline-none transition-all"
                         placeholder="john@example.com"
                       />
                     </div>
@@ -235,7 +235,7 @@ export default function Contact() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="company" className="block text-sm text-neutral-700 mb-2">
+                      <label htmlFor="company" className="block text-sm text-neutral-700 dark:text-neutral-300 mb-2">
                         {t('company')}
                       </label>
                       <input
@@ -244,13 +244,13 @@ export default function Contact() {
                         name="company"
                         value={formData.company}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent outline-none transition-all"
+                        className="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-700 rounded-xl bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent outline-none transition-all"
                         placeholder=""
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="subject" className="block text-sm text-neutral-700 mb-2">
+                      <label htmlFor="subject" className="block text-sm text-neutral-700 dark:text-neutral-300 mb-2">
                         {t('subject')} *
                       </label>
                       <select
@@ -259,7 +259,7 @@ export default function Contact() {
                         value={formData.subject}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent outline-none transition-all"
+                        className="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-700 rounded-xl bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent outline-none transition-all"
                       >
                         <option value="">{t('selectSubject')}</option>
                         <option value="services">{t('servicesInquiry')}</option>
@@ -273,7 +273,7 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm text-neutral-700 mb-2">
+                    <label htmlFor="message" className="block text-sm text-neutral-700 dark:text-neutral-300 mb-2">
                       {t('message')} *
                     </label>
                     <textarea
@@ -283,7 +283,7 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       rows={6}
-                      className="w-full px-4 py-3 border border-neutral-300 rounded-xl focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent outline-none transition-all resize-none"
+                      className="w-full px-4 py-3 border border-neutral-300 dark:border-neutral-700 rounded-xl bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:ring-2 focus:ring-[#D4AF37] focus:border-transparent outline-none transition-all resize-none"
                       placeholder={t('messagePlaceholder')}
                     />
                   </div>
@@ -304,7 +304,7 @@ export default function Contact() {
       </section>
 
       {/* CTA Cards */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
@@ -319,10 +319,10 @@ export default function Contact() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -8 }}
-                className="text-center p-6 bg-neutral-50 rounded-2xl border border-neutral-200 hover:shadow-xl transition-all duration-300"
+                className="text-center p-6 bg-neutral-50 dark:bg-neutral-900 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:shadow-xl transition-all duration-300"
               >
-                <h3 className="text-neutral-900 mb-3">{card.title}</h3>
-                <p className="text-neutral-600 text-sm mb-4">{card.desc}</p>
+                <h3 className="text-neutral-900 dark:text-neutral-100 mb-3">{card.title}</h3>
+                <p className="text-neutral-600 dark:text-neutral-400 text-sm mb-4">{card.desc}</p>
                 <Button href={card.href} variant="outline" className="w-full">
                   <span className="inline-flex items-center gap-2">
                     {card.btn}

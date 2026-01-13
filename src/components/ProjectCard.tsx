@@ -17,7 +17,7 @@ export function ProjectCard({ title, description, category, imageUrl }: ProjectC
     <motion.div
       whileHover={{ y: -10 }}
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-      className="bg-white dark:bg-neutral-800 rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-700 hover:shadow-2xl transition-all duration-300 group"
+      className="bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-700 hover:shadow-2xl transition-all duration-300 group"
     >
       <div className="relative h-56 overflow-hidden bg-neutral-100 dark:bg-neutral-700">
         <motion.div

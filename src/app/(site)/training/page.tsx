@@ -100,7 +100,7 @@ export default function Training() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 bg-white border-b border-neutral-200">
+      <section className="py-12 bg-white dark:bg-neutral-950 border-b border-neutral-200 dark:border-neutral-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
@@ -117,7 +117,7 @@ export default function Training() {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
               >
                 <div className="text-3xl text-[#D4AF37] mb-2">{stat.value}</div>
-                <div className="text-neutral-600 text-sm">{stat.label}</div>
+                <div className="text-neutral-600 dark:text-neutral-400 text-sm">{stat.label}</div>
               </motion.div>
             ))}
           </div>
@@ -125,7 +125,7 @@ export default function Training() {
       </section>
 
       {/* Web Development Training */}
-      <section className="py-16 bg-neutral-50">
+      <section className="py-16 bg-neutral-50 dark:bg-neutral-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -134,8 +134,8 @@ export default function Training() {
             variants={fadeInUp}
             className="mb-12"
           >
-            <h2 className="text-3xl text-neutral-900 mb-3">{t('webDevPrograms')}</h2>
-            <p className="text-neutral-600">{t('webDevProgramsDesc')}</p>
+            <h2 className="text-3xl text-neutral-900 dark:text-neutral-100 mb-3">{t('webDevPrograms')}</h2>
+            <p className="text-neutral-600 dark:text-neutral-400">{t('webDevProgramsDesc')}</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -165,7 +165,7 @@ export default function Training() {
       </section>
 
       {/* AI Training */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -174,8 +174,8 @@ export default function Training() {
             variants={fadeInUp}
             className="mb-12"
           >
-            <h2 className="text-3xl text-neutral-900 mb-3">{t('aiMachineLearning')}</h2>
-            <p className="text-neutral-600">{t('aiMachineLearningDesc')}</p>
+            <h2 className="text-3xl text-neutral-900 dark:text-neutral-100 mb-3">{t('aiMachineLearning')}</h2>
+            <p className="text-neutral-600 dark:text-neutral-400">{t('aiMachineLearningDesc')}</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -205,7 +205,7 @@ export default function Training() {
       </section>
 
       {/* Digital Skills */}
-      <section className="py-16 bg-neutral-50">
+      <section className="py-16 bg-neutral-50 dark:bg-neutral-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -214,8 +214,8 @@ export default function Training() {
             variants={fadeInUp}
             className="mb-12"
           >
-            <h2 className="text-3xl text-neutral-900 mb-3">{t('digitalSkills')}</h2>
-            <p className="text-neutral-600">{t('digitalSkillsDesc')}</p>
+            <h2 className="text-3xl text-neutral-900 dark:text-neutral-100 mb-3">{t('digitalSkills')}</h2>
+            <p className="text-neutral-600 dark:text-neutral-400">{t('digitalSkillsDesc')}</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -245,13 +245,13 @@ export default function Training() {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-white dark:bg-neutral-950">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl text-neutral-900 mb-12 text-center"
+            className="text-3xl text-neutral-900 dark:text-neutral-100 mb-12 text-center"
           >
             {t('whyChoose')}
           </motion.h2>
@@ -274,8 +274,8 @@ export default function Training() {
                 <div className="w-16 h-16 bg-[#D4AF37]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <div className="text-[#D4AF37]">{feature.icon}</div>
                 </div>
-                <h3 className="text-neutral-900 mb-2">{feature.title}</h3>
-                <p className="text-neutral-600 text-sm">{feature.desc}</p>
+                <h3 className="text-neutral-900 dark:text-neutral-100 mb-2">{feature.title}</h3>
+                <p className="text-neutral-600 dark:text-neutral-400 text-sm">{feature.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -283,7 +283,7 @@ export default function Training() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-[#4A3933] to-[#3A2923] text-white">
+      <section className="py-16 bg-linear-to-r from-[#4A3933] to-[#3A2923] text-white dark:from-[#2b120d] dark:via-[#190a08] dark:to-[#050302]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

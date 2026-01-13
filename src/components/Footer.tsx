@@ -15,7 +15,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-[#4A3933] via-[#3A2923] to-[#2A1913] text-white relative overflow-hidden">
+    <footer className="bg-gradient-to-br from-[#4A3933] via-[#3A2923] to-[#2A1913] text-white relative overflow-hidden dark:from-[#03050a] dark:via-[#0c1117] dark:to-[#050608] dark:text-neutral-200">
       {/* Decorative Background */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-0 left-1/4 w-64 h-64 bg-[#D4AF37] rounded-full blur-3xl" />
@@ -44,7 +44,7 @@ export function Footer() {
                 <div className="text-xs uppercase tracking-[0.25em] text-[#D4AF37]">Digital</div>
               </div>
             </motion.div>
-            <p className="text-neutral-300 text-sm leading-relaxed">
+            <p className="text-neutral-300 dark:text-neutral-300 text-sm leading-relaxed">
               {t('footerDesc')}
             </p>
           </motion.div>
@@ -57,7 +57,7 @@ export function Footer() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <h3 className="text-[#D4AF37] mb-6">{t('quickLinks')}</h3>
-            <ul className="space-y-3 text-sm">
+            <ul className="space-y-3 text-sm text-neutral-300 dark:text-neutral-300">
               {[
                 { name: t('services'), path: '/services' },
                 { name: t('training'), path: '/training' },
@@ -89,7 +89,7 @@ export function Footer() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <h3 className="text-[#D4AF37] mb-6">{t('services')}</h3>
-            <ul className="space-y-3 text-sm text-neutral-300">
+            <ul className="space-y-3 text-sm text-neutral-300 dark:text-neutral-300">
               {[
                 t('webDev'),
                 t('cloudSaas'),
@@ -112,28 +112,34 @@ export function Footer() {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <h3 className="text-[#D4AF37] mb-6">{t('contactInfo')}</h3>
-            <ul className="space-y-4 text-sm">
-              <li className="flex items-center gap-3 text-neutral-300">
-                <div className="w-8 h-8 bg-[#D4AF37]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+            <ul className="space-y-4 text-sm text-neutral-300 dark:text-neutral-300">
+              <li className="flex items-center gap-3 text-neutral-300 dark:text-neutral-200">
+                <div className="w-8 h-8 bg-[#D4AF37]/10 dark:bg-[#D4AF37]/20 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Mail size={16} className="text-[#D4AF37]" />
                 </div>
-                <a href="mailto:info@mandendigital.com" className="hover:text-[#D4AF37] transition-colors">
+                <a
+                  href="mailto:info@mandendigital.com"
+                  className="text-white dark:text-neutral-100 hover:text-[#D4AF37] transition-colors"
+                >
                   info@mandendigital.com
                 </a>
               </li>
-              <li className="flex items-center gap-3 text-neutral-300">
+              <li className="flex items-center gap-3 text-neutral-300 dark:text-neutral-200">
                 <div className="w-8 h-8 bg-[#D4AF37]/10 rounded-lg flex items-center justify-center flex-shrink-0">
                   <Phone size={16} className="text-[#D4AF37]" />
                 </div>
-                <a href="tel:+1234567890" className="hover:text-[#D4AF37] transition-colors">
+                <a
+                  href="tel:+1234567890"
+                  className="text-white dark:text-neutral-100 hover:text-[#D4AF37] transition-colors"
+                >
                   +1 234 567 8900
                 </a>
               </li>
-              <li className="flex items-center gap-3 text-neutral-300">
+              <li className="flex items-center gap-3 text-neutral-300 dark:text-neutral-200">
                 <div className="w-8 h-8 bg-[#D4AF37]/10 rounded-lg flex items-center justify-center flex-shrink-0">
                   <MapPin size={16} className="text-[#D4AF37]" />
                 </div>
-                <span>Global Services</span>
+                <span className="text-white dark:text-neutral-100">Global Services</span>
               </li>
             </ul>
 
@@ -144,7 +150,7 @@ export function Footer() {
                   href={social.href}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-10 h-10 bg-[#D4AF37]/10 rounded-lg flex items-center justify-center text-neutral-300 hover:bg-[#D4AF37] hover:text-white transition-all duration-300"
+                  className="w-10 h-10 bg-[#D4AF37]/10 dark:bg-[#D4AF37]/20 rounded-lg flex items-center justify-center text-neutral-300 dark:text-neutral-200 hover:bg-[#D4AF37] hover:text-white transition-all duration-300"
                   aria-label={social.name}
                 >
                   {social.icon}
@@ -160,9 +166,9 @@ export function Footer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="border-t border-neutral-600/30 pt-8 text-center"
+          className="border-t border-neutral-600/30 dark:border-neutral-700/40 pt-8 text-center"
         >
-          <p className="text-sm text-neutral-300">
+          <p className="text-sm text-neutral-300 dark:text-neutral-400">
             &copy; {new Date().getFullYear()} Manden Digital SARL. All rights reserved.
           </p>
         </motion.div>

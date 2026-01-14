@@ -4,8 +4,10 @@ import { ImageWithFallback } from '@/components/Image';
 import { ServiceCard } from '@/components/ServiceCard';
 import { TrainingCard } from '@/components/TrainingCard';
 import { useLanguage } from '@/context/useLanguage';
+import { trainingPrograms } from '@/data/trainingPrograms';
 import { Sparkles, ArrowRight, TrendingUp, Award, Code, Cloud, Briefcase, GraduationCap, Users, Zap, Bot } from 'lucide-react';
 import { motion } from 'motion/react';
+import Link from 'next/link';
 
 
 const fadeInUp = {
@@ -352,29 +354,32 @@ function Home() {
             </p>
           </motion.div>
 
-          <motion.div
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
-          >
-            {[
-              { icon: <Code size={28} />, title: t('fullStackWeb'), desc: t('fullStackWebDesc'), duration: '12', level: t('allLevels') },
-              { icon: <Zap size={28} />, title: t('aiTools'), desc: t('aiToolsDesc'), duration: '8', level: t('beginnerIntermediate') },
-              { icon: <Bot size={28} />, title: t('aiAgents'), desc: t('aiAgentsDesc'), duration: '10', level: t('intermediateAdvanced') }
-            ].map((training, index) => (
-              <motion.div key={index} variants={fadeInUp}>
-                <TrainingCard
-                  icon={training.icon}
-                  title={training.title}
-                  description={training.desc}
-                  duration={`${training.duration} ${t('weeks')}`}
-                  level={training.level}
-                />
-              </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {trainingPrograms.map((program) => (
+              <Link
+                key={program.slug}
+                href={`/training/${program.slug}`}
+                className="group motion-safe:hover:-translate-y-1 motion-safe:transition-transform"
+              >
+                <motion.div
+                  whileHover={{ y: -12 }}
+                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <TrainingCard
+                    icon={
+                      <div className="w-14 h-14 rounded-xl bg-linear-to-br from-[#D4AF37]/90 to-[#D4AF37]/60 flex items-center justify-center text-white shadow-sm">
+                        <span className="text-2xl font-bold">⚡</span>
+                      </div>
+                    }
+                    title={program.title}
+                    description={program.subtitle}
+                    duration={program.duration}
+                    level={program.level}
+                  />
+                </motion.div>
+              </Link>
             ))}
-          </motion.div>
+          </div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}

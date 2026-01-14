@@ -4,7 +4,7 @@ import { Button } from '@/components/Button';
 import { ImageWithFallback } from '@/components/Image';
 import { useLanguage } from '@/context/useLanguage';
 import { MessageSquare, Mail, Phone, MapPin, Clock, Send, ArrowRight } from 'lucide-react';
-import { motion } from 'motion/react';
+import { MotionDiv } from "@/components/MotionDiv";
 import { useState, type ChangeEvent, type FormEvent } from 'react';
 
 
@@ -38,7 +38,7 @@ export default function Contact() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-gradient-to-br from-[#4A3933] via-[#3A2923] to-[#2A1913] dark:from-[#1A1412] dark:via-[#0A0402] dark:to-black">
+      <section className="relative min-h-[60vh] flex items-center overflow-hidden bg-linear-to-br from-[#4A3933] via-[#3A2923] to-[#2A1913] dark:from-[#1A1412] dark:via-[#0A0402] dark:to-black">
         {/* Background Image */}
         <div className="absolute inset-0">
           <ImageWithFallback
@@ -46,12 +46,12 @@ export default function Contact() {
             alt="Customer Support"
             className="w-full h-full object-cover opacity-30 dark:opacity-25"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#4A3933]/95 via-[#3A2923]/85 to-[#4A3933]/95 dark:from-black/95 dark:via-black/85 dark:to-black/95" />
+          <div className="absolute inset-0 bg-linear-to-r from-[#4A3933]/95 via-[#3A2923]/85 to-[#4A3933]/95 dark:from-black/95 dark:via-black/85 dark:to-black/95" />
         </div>
 
         {/* Animated Background */}
         <div className="absolute inset-0">
-          <motion.div
+          <MotionDiv
             animate={{
               scale: [1, 1.2, 1],
               x: [0, 50, 0],
@@ -61,9 +61,9 @@ export default function Contact() {
               repeat: Infinity,
               ease: "linear"
             }}
-            className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-[#D4AF37]/10 to-transparent rounded-full blur-3xl dark:from-[#D4AF37]/15"
+            className="absolute top-1/4 left-1/4 w-96 h-96 bg-linear-to-br from-[#D4AF37]/10 to-transparent rounded-full blur-3xl dark:from-[#D4AF37]/15"
           />
-          <motion.div
+          <MotionDiv
             animate={{
               scale: [1.1, 1, 1.1],
               rotate: [0, 45, 0],
@@ -78,13 +78,13 @@ export default function Contact() {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <motion.div
+          <MotionDiv
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="max-w-3xl"
           >
-            <motion.div
+            <MotionDiv
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.6 }}
@@ -92,7 +92,7 @@ export default function Contact() {
             >
               <MessageSquare size={16} />
               <span>Get In Touch</span>
-            </motion.div>
+            </MotionDiv>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl text-white mb-6">
               {t('contactTitle')}
@@ -100,7 +100,7 @@ export default function Contact() {
             <p className="text-xl text-neutral-200 leading-relaxed">
               {t('contactSubtitle')}
             </p>
-          </motion.div>
+          </MotionDiv>
         </div>
       </section>
 
@@ -110,7 +110,7 @@ export default function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Contact Information */}
             <div className="lg:col-span-1 space-y-6">
-              <motion.div
+              <MotionDiv
                 initial={{ opacity: 0, x: -40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -121,7 +121,7 @@ export default function Contact() {
                 
                 <div className="space-y-4">
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-[#D4AF37]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-10 h-10 bg-[#D4AF37]/10 rounded-lg flex items-center justify-center shrink-0">
                       <Mail className="text-[#D4AF37]" size={20} />
                     </div>
                     <div>
@@ -133,7 +133,7 @@ export default function Contact() {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-[#D4AF37]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-10 h-10 bg-[#D4AF37]/10 rounded-lg flex items-center justify-center shrink-0">
                       <Phone className="text-[#D4AF37]" size={20} />
                     </div>
                     <div>
@@ -145,7 +145,7 @@ export default function Contact() {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-[#D4AF37]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-10 h-10 bg-[#D4AF37]/10 rounded-lg flex items-center justify-center shrink-0">
                       <MapPin className="text-[#D4AF37]" size={20} />
                     </div>
                     <div>
@@ -155,7 +155,7 @@ export default function Contact() {
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <div className="w-10 h-10 bg-[#D4AF37]/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <div className="w-10 h-10 bg-[#D4AF37]/10 rounded-lg flex items-center justify-center shrink-0">
                       <Clock className="text-[#D4AF37]" size={20} />
                     </div>
                     <div>
@@ -167,14 +167,14 @@ export default function Contact() {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </MotionDiv>
 
-              <motion.div
+              <MotionDiv
                 initial={{ opacity: 0, x: -40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="bg-linear-to-r from-[#4A3933] to-[#3A2923] text-white dark:from-[#2b120d] dark:via-[#190a08] dark:to-[#050302] text-white p-6 rounded-2xl"
+                className="bg-linear-to-r from-[#4A3933] to-[#3A2923] text-white dark:from-[#2b120d] dark:via-[#190a08] dark:to-[#050302] p-6 rounded-2xl"
               >
                 <MessageSquare className="text-[#D4AF37] mb-4" size={32} />
                 <h3 className="text-white mb-2">{t('quickResponse')}</h3>
@@ -184,12 +184,12 @@ export default function Contact() {
                 <p className="text-neutral-200 text-sm">
                   {t('urgentMatters')}
                 </p>
-              </motion.div>
+              </MotionDiv>
             </div>
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <motion.div
+              <MotionDiv
                 initial={{ opacity: 0, x: 40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -297,7 +297,7 @@ export default function Contact() {
                     </Button>
                   </div>
                 </form>
-              </motion.div>
+              </MotionDiv>
             </div>
           </div>
         </div>
@@ -312,7 +312,7 @@ export default function Contact() {
               { title: t('trainingProgramsCard'), desc: t('trainingProgramsCardDesc'), btn: t('viewTraining'), href: '/training' },
               { title: t('ourPortfolio'), desc: t('ourPortfolioDesc'), btn: t('viewProjects'), href: '/projects' }
             ].map((card, index) => (
-              <motion.div
+              <MotionDiv
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -329,7 +329,7 @@ export default function Contact() {
                     <ArrowRight size={16} />
                   </span>
                 </Button>
-              </motion.div>
+              </MotionDiv>
             ))}
           </div>
         </div>

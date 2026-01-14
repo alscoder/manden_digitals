@@ -51,7 +51,7 @@ export function TrainingCard({ icon, title, description, duration, level }: Trai
           </motion.div>
           
           <h3 className="text-white mb-2 text-xl">{title}</h3>
-          <p className="text-neutral-200 text-sm leading-relaxed">{description}</p>
+          <p className="text-neutral-200 text-sm leading-relaxed line-clamp-2">{description}</p>
         </div>
       </div>
 

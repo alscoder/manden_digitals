@@ -14,7 +14,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: {
-    default: "Manden Digitals SARL",
+    default: "Manden Digital SARL",
     template: "%s | Manden Digitals SARL",
   },
   description: "Manden Didital SARL - Plateforme de digitalistion et pestation de service",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Manden Digitals SARL",
+    title: "Manden Digital SARL",
     description: "Manden Didital SARL - Plateforme de digitalistion et pestation de service",
     images: ["/logo.png"],
   },

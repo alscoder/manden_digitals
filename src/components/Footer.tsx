@@ -34,17 +34,13 @@ export function Footer() {
             <motion.div
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
-              className="mb-6 inline-flex items-center gap-3"
+              className="flex gap-1 items-center"
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#D4AF37] to-[#C19F2F] text-white font-semibold">
-                MD
-              </div>
-              <div className="leading-tight">
-                <div className="text-lg font-semibold text-white">Manden</div>
-                <div className="text-xs uppercase tracking-[0.25em] text-[#D4AF37]">Digital</div>
-              </div>
+            <Link href="/" className=" -mt-10">
+            <img src={"/logo.png"} alt='MandenDigitals Logo' className='size-32 '/>
+          </Link>
             </motion.div>
-            <p className="text-neutral-300 dark:text-neutral-300 text-sm leading-relaxed">
+            <p className="text-neutral-300 dark:text-neutral-300 text-sm leading-relaxed -mt-10">
               {t('footerDesc')}
             </p>
           </motion.div>

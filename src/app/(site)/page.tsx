@@ -1,13 +1,16 @@
-'use client'
+'use client';
+import { useEffect, useRef, useState } from 'react';
 import { Button } from '@/components/Button';
 import { ImageWithFallback } from '@/components/Image';
 import { ServiceCard } from '@/components/ServiceCard';
 import { TrainingCard } from '@/components/TrainingCard';
 import { useLanguage } from '@/context/useLanguage';
 import { trainingPrograms } from '@/data/trainingPrograms';
-import { Sparkles, ArrowRight, TrendingUp, Award, Code, Cloud, Briefcase, GraduationCap, Users, Zap, Bot } from 'lucide-react';
+import { projectHighlights } from '@/data/projectHighlights';
+import { Sparkles, ArrowRight, ArrowLeft, TrendingUp, Award, Code, Cloud, Users, Zap } from 'lucide-react';
 import { motion } from 'motion/react';
 import Link from 'next/link';
+import { getTrainingIcon } from '@/utils/trainingIcons';
 
 
 const fadeInUp = {
@@ -16,16 +19,79 @@ const fadeInUp = {
   transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
 };
 
-const staggerContainer = {
-  animate: {
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
-
 function Home() {
   const { t } = useLanguage();
+  const [activeProject, setActiveProject] = useState(0);
+  const projectCardRefs = useRef<Array<HTMLDivElement | null>>([]);
+
+  const services = [
+    {
+      icon: <Code size={28} />,
+      title: t('serviceDevTitle'),
+      description: t('serviceDevDesc'),
+      points: [
+        t('serviceDevPoint1'),
+        t('serviceDevPoint2'),
+        t('serviceDevPoint3'),
+        t('serviceDevPoint4')
+      ]
+    },
+    {
+      icon: <Cloud size={28} />,
+      title: t('serviceCloudTitle'),
+      description: t('serviceCloudDesc'),
+      points: [
+        t('serviceCloudPoint1'),
+        t('serviceCloudPoint2'),
+        t('serviceCloudPoint3'),
+        t('serviceCloudPoint4')
+      ]
+    },
+    {
+      icon: <Zap size={28} />,
+      title: t('serviceTrainingTitle'),
+      description: t('serviceTrainingDesc'),
+      points: [
+        t('serviceTrainingPoint1'),
+        t('serviceTrainingPoint2'),
+        t('serviceTrainingPoint3'),
+        t('serviceTrainingPoint4')
+      ]
+    }
+  ];
+
+  const values = [
+    {
+      title: t('valueExcellenceTitle'),
+      description: t('valueExcellenceDesc')
+    },
+    {
+      title: t('valueInnovationTitle'),
+      description: t('valueInnovationDesc')
+    },
+    {
+      title: t('valuePartnershipTitle'),
+      description: t('valuePartnershipDesc')
+    }
+  ];
+
+  const scrollToProject = (index: number) => {
+    const normalized = (index + projectHighlights.length) % projectHighlights.length;
+    setActiveProject(normalized);
+    projectCardRefs.current[normalized]?.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'center'
+    });
+  };
+
+  useEffect(() => {
+    projectCardRefs.current[0]?.scrollIntoView({
+      behavior: 'auto',
+      block: 'nearest',
+      inline: 'center'
+    });
+  }, []);
 
   return (
     <div>
@@ -118,11 +184,11 @@ function Home() {
               className="grid grid-cols-3 gap-6 mt-12"
             >
               <div>
-                <div className="text-3xl text-[#D4AF37] mb-1">50+</div>
+                <div className="text-3xl text-[#D4AF37] mb-1">7+</div>
                 <div className="text-neutral-300 text-sm">Projects</div>
               </div>
               <div>
-                <div className="text-3xl text-[#D4AF37] mb-1">500+</div>
+                <div className="text-3xl text-[#D4AF37] mb-1">10+</div>
                 <div className="text-neutral-300 text-sm">Clients</div>
               </div>
               <div>
@@ -145,7 +211,7 @@ function Home() {
               className="relative rounded-2xl overflow-hidden shadow-2xl"
             >
               <ImageWithFallback
-                src="https://images.unsplash.com/photo-1739298061707-cefee19941b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWFtJTIwY29sbGFib3JhdGlvbiUyMG9mZmljZXxlbnwxfHx8fDE3NjgyMzkwMzB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                src="https://plus.unsplash.com/premium_vector-1727494084468-1d1596d4253d?q=80&w=1625&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Team Collaboration"
                 className="w-full h-125 object-cover"
               />
@@ -204,73 +270,119 @@ function Home() {
       </section>
 
       {/* Services Overview */}
-      <section className="py-20 bg-white dark:bg-gradient-to-b dark:from-[#2a150c] dark:via-[#150605] dark:to-[#050404] relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2YwZjBmMCIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI2dyaWQpIi8+PC9zdmc+')] opacity-50 dark:opacity-10" />
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 bg-white text-neutral-900 dark:bg-neutral-900 dark:text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="initial"
             whileInView="animate"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="text-center mb-16"
+            className="text-center mb-12"
           >
             <motion.div
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="inline-block mb-4"
+              className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.5em] text-[#D4AF37] mb-4"
             >
-              <div className="w-16 h-16 bg-[#D4AF37]/10 rounded-2xl flex items-center justify-center mx-auto rotate-12">
-                <Sparkles className="text-[#D4AF37]" size={32} />
-              </div>
+              <Sparkles size={24} />
+              {t('servicesSectionLabel')}
             </motion.div>
-            <h2 className="text-3xl md:text-4xl text-neutral-900 dark:text-neutral-100 mb-4">
-              {t('coreServices')}
+            <h2 className="text-3xl md:text-4xl font-semibold mb-4">
+              {t('servicesSectionTitle')}
             </h2>
-            <p className="text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-              {t('coreServicesDesc')}
+            <p className="text-neutral-600 dark:text-neutral-200 max-w-3xl mx-auto">
+              {t('servicesSectionDesc')}
             </p>
           </motion.div>
 
-          <motion.div
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: true }}
-            variants={staggerContainer}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-          >
-            {[
-              { icon: <Code size={24} />, title: t('webDev'), desc: t('webDevDesc') },
-              { icon: <Cloud size={24} />, title: t('cloudSaas'), desc: t('cloudSaasDesc') },
-              { icon: <Briefcase size={24} />, title: t('digitalConsulting'), desc: t('digitalConsultingDesc') },
-              { icon: <GraduationCap size={24} />, title: t('itSolutions'), desc: t('itSolutionsDesc') }
-            ].map((service, index) => (
-              <motion.div key={index} variants={fadeInUp}>
-                <ServiceCard
-                  icon={service.icon}
-                  title={service.title}
-                  description={service.desc}
-                />
-              </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+            {services.map((service) => (
+              <ServiceCard
+                key={service.title}
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+                points={service.points}
+              />
             ))}
-          </motion.div>
+          </div>
+        </div>
+      </section>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="text-center mt-12"
-          >
-            <Button href="/services" variant="secondary">
-              <span className="inline-flex items-center gap-2">
-                {t('exploreServices')}
-                <ArrowRight size={18} />
-              </span>
-            </Button>
-          </motion.div>
+
+      <section className="py-24 bg-white text-neutral-900 dark:bg-neutral-900 dark:text-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <p className="text-xs uppercase tracking-[0.5em] text-[#D4AF37] mb-2">{t('projectsSectionLabel')}</p>
+            <h2 className="text-3xl md:text-4xl font-semibold">{t('projectsSectionTitle')}</h2>
+            <p className="text-neutral-600 dark:text-neutral-400 mt-3">{t('projectsSectionDesc')}</p>
+          </div>
+
+          <div className="relative">
+            <button
+              type="button"
+              onClick={() => scrollToProject(activeProject - 1)}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-neutral-900 border border-white/10 text-white flex items-center justify-center shadow-lg"
+              aria-label="Previous project"
+            >
+              <ArrowLeft size={20} />
+            </button>
+
+            <div className="flex gap-6 overflow-x-auto hide-scrollbar px-6 py-8 lg:px-12 ">
+              {projectHighlights.map((project, index) => (
+                <div
+                  key={project.slug}
+                  ref={(el) => { projectCardRefs.current[index] = el; }}
+                  className="snap-center min-w-70 md:min-w-[320px] lg:min-w-90"
+                >
+                  <div className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-neutral-200 bg-gradient-to-b from-white to-neutral-50 text-neutral-900 shadow-lg transition duration-500 hover:border-[#D4AF37] dark:border-white/10 dark:bg-gradient-to-b dark:from-neutral-950 dark:via-neutral-900 dark:to-neutral-900 dark:text-white dark:shadow-[0_10px_60px_rgba(0,0,0,0.7)]">
+                    <div className="relative h-56">
+                      <ImageWithFallback
+                        src={project.coverImage}
+                        alt={project.title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-transparent" />
+                      <div className="absolute inset-0 flex flex-col justify-between px-6 py-6 opacity-0 transition duration-500 group-hover:opacity-100">
+                        <p
+                          className="text-sm leading-relaxed text-neutral-900 dark:text-white"
+                          style={{
+                            display: '-webkit-box',
+                            WebkitLineClamp: 3,
+                            WebkitBoxOrient: 'vertical',
+                            overflow: 'hidden'
+                          }}
+                        >
+                          {project.shortDescription}
+                        </p>
+                        <div className="flex flex-wrap gap-2">
+                          {project.stack.map((tech) => (
+                            <span
+                              key={`${project.slug}-stack-${tech}`}
+                              className="px-3 py-1 rounded-full bg-[#D4AF37] text-xs font-semibold tracking-wide text-neutral-900"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <button
+              type="button"
+              onClick={() => scrollToProject(activeProject + 1)}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-neutral-900 border border-white/10 text-white flex items-center justify-center shadow-lg"
+              aria-label="Next project"
+            >
+              <ArrowRight size={20} />
+            </button>
+          </div>
         </div>
       </section>
 
@@ -285,30 +397,30 @@ function Home() {
               transition={{ duration: 0.8 }}
             >
               <h2 className="text-3xl md:text-4xl text-neutral-900 dark:text-neutral-100 mb-6">
-                Building the Future with Code
+                {t('buildingFuture')}
               </h2>
               <p className="text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed">
-                Our team of expert developers creates innovative solutions using cutting-edge technologies. From concept to deployment, we deliver excellence at every step.
+                {t('buildingFutureDesc')}
               </p>
               <div className="space-y-4">
                 {[
-                  { icon: <Users size={20} />, text: 'Expert Team of Developers' },
-                  { icon: <Code size={20} />, text: 'Modern Tech Stack' },
-                  { icon: <Award size={20} />, text: 'Quality Assurance' }
+                  { icon: <Users size={20} />, text: t('expertTeam') },
+                  { icon: <Code size={20} />, text: t('modernTech') },
+                  { icon: <Award size={20} />, text: t('qualityAssurance') }
                 ].map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className="flex items-center gap-3 text-neutral-700 dark:text-neutral-300"
-                  >
-                    <div className="w-10 h-10 bg-[#D4AF37]/10 rounded-lg flex items-center justify-center text-[#D4AF37]">
-                      {item.icon}
-                    </div>
-                    <span>{item.text}</span>
-                  </motion.div>
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                      className="flex items-center gap-3 text-neutral-700 dark:text-neutral-300"
+                    >
+                      <div className="w-10 h-10 bg-[#D4AF37]/10 rounded-lg flex items-center justify-center text-[#D4AF37]">
+                        {item.icon}
+                      </div>
+                      <span>{item.text}</span>
+                    </motion.div>
                 ))}
               </div>
             </motion.div>
@@ -355,30 +467,34 @@ function Home() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {trainingPrograms.map((program) => (
-              <Link
-                key={program.slug}
-                href={`/training/${program.slug}`}
-                className="group motion-safe:hover:-translate-y-1 motion-safe:transition-transform"
-              >
-                <motion.div
-                  whileHover={{ y: -12 }}
-                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            {trainingPrograms.map((program) => {
+              const IconComponent = getTrainingIcon(program.slug);
+
+              return (
+                <Link
+                  key={program.slug}
+                  href={`/training/${program.slug}`}
+                  className="group motion-safe:hover:-translate-y-1 motion-safe:transition-transform"
                 >
-                  <TrainingCard
-                    icon={
-                      <div className="w-14 h-14 rounded-xl bg-linear-to-br from-[#D4AF37]/90 to-[#D4AF37]/60 flex items-center justify-center text-white shadow-sm">
-                        <span className="text-2xl font-bold">⚡</span>
-                      </div>
-                    }
-                    title={program.title}
-                    description={program.subtitle}
-                    duration={program.duration}
-                    level={program.level}
-                  />
-                </motion.div>
-              </Link>
-            ))}
+                  <motion.div
+                    whileHover={{ y: -12 }}
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    <TrainingCard
+                      icon={
+                        <div className="w-14 h-14 rounded-xl bg-linear-to-br from-[#D4AF37]/90 to-[#D4AF37]/60 flex items-center justify-center text-white shadow-sm">
+                          <IconComponent size={28} />
+                        </div>
+                      }
+                      title={program.title}
+                      description={program.subtitle}
+                      duration={program.duration}
+                      level={program.level}
+                    />
+                  </motion.div>
+                </Link>
+              );
+            })}
           </div>
 
           <motion.div

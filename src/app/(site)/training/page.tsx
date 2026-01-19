@@ -7,24 +7,37 @@ import { ImageWithFallback } from "@/components/Image";
 import { TrainingCard } from "@/components/TrainingCard";
 import { useLanguage } from "@/context/useLanguage";
 import { trainingPrograms } from "@/data/trainingPrograms";
+import { getTrainingIcon } from "@/utils/trainingIcons";
 import { ArrowRight, GraduationCap } from "lucide-react";
 import { motion } from "motion/react";
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 40 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
-};
 
 const stats = [
-  { value: '500+', label: 'Étudiants formés' },
-  { value: '15+', label: 'Experts instructeurs' },
+  { value: '10+', label: 'Étudiants formés' },
+  { value: '3+', label: 'Experts instructeurs' },
   { value: '95%', label: 'Taux de réussite' },
-  { value: '10+', label: 'Programmes actifs' }
+  { value: '05+', label: 'Programmes actifs' }
 ];
 
 export default function Training() {
   const { t } = useLanguage();
+  const packIdeas = [
+    {
+      title: t('packStudentTitle'),
+      description: t('packStudentDesc'),
+      includes: t('packStudentIncludes')
+    },
+    {
+      title: t('packEmployabilityTitle'),
+      description: t('packEmployabilityDesc'),
+      includes: t('packEmployabilityIncludes')
+    },
+    {
+      title: t('packTeachersTitle'),
+      description: t('packTeachersDesc'),
+      includes: t('packTeachersIncludes')
+    }
+  ];
 
   return (
     <div>
@@ -32,7 +45,7 @@ export default function Training() {
       <section className="relative min-h-[70vh] flex items-center overflow-hidden bg-linear-to-br from-[#4A3933] via-[#3A2923] to-[#2A1913] dark:from-[#1A1412] dark:via-[#0A0402] dark:to-black">
         <div className="absolute inset-0">
           <ImageWithFallback
-            src="https://images.unsplash.com/photo-1758270704524-596810e891b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdHVkZW50cyUyMGNsYXNzcm9vbSUyMGxlYXJuaW5nfGVufDF8fHx8MTc2ODIxMjUzM3ww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+            src="https://plus.unsplash.com/premium_vector-1682305432868-4110926af6f3?q=80&w=2434&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Students Learning"
             className="w-full h-full object-cover opacity-35 dark:opacity-30"
           />
@@ -135,33 +148,63 @@ export default function Training() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {trainingPrograms.map((program) => (
-              <Link
-                key={program.slug}
-                href={`/training/${program.slug}`}
-                className="group motion-safe:hover:-translate-y-1 motion-safe:transition-transform"
-              >
-                <motion.div
-                  whileHover={{ y: -12 }}
-                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            {trainingPrograms.map((program) => {
+              const IconComponent = getTrainingIcon(program.slug);
+
+              return (
+                <Link
+                  key={program.slug}
+                  href={`/training/${program.slug}`}
+                  className="group motion-safe:hover:-translate-y-1 motion-safe:transition-transform"
                 >
-                  <TrainingCard
-                    icon={
-                      <div className="w-14 h-14 rounded-xl bg-linear-to-br from-[#D4AF37]/90 to-[#D4AF37]/60 flex items-center justify-center text-white shadow-sm">
-                        <span className="text-2xl font-bold">⚡</span>
-                      </div>
-                    }
-                    title={program.title}
-                    description={program.subtitle}
-                    duration={program.duration}
-                    level={program.level}
-                  />
-                </motion.div>
-              </Link>
-            ))}
+                  <motion.div
+                    whileHover={{ y: -12 }}
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                  >
+                    <TrainingCard
+                      icon={
+                        <div className="w-14 h-14 rounded-xl bg-linear-to-br from-[#D4AF37]/90 to-[#D4AF37]/60 flex items-center justify-center text-white shadow-sm">
+                          <IconComponent size={28} />
+                        </div>
+                      }
+                      title={program.title}
+                      description={program.subtitle}
+                      duration={program.duration}
+                      level={program.level}
+                    />
+                  </motion.div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
+
+      {/* <section className="py-16 bg-neutral-900 text-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <p className="text-xs uppercase tracking-[0.5em] text-[#D4AF37] mb-2">{t('packIdeasLabel')}</p>
+            <h2 className="text-3xl md:text-4xl font-semibold">{t('packIdeasTitle')}</h2>
+            <p className="text-neutral-200 mt-3 max-w-3xl mx-auto">{t('packIdeasDesc')}</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {packIdeas.map((pack) => (
+              <div
+                key={pack.title}
+                className="rounded-3xl border border-white/10 bg-white/5 p-6 space-y-4 shadow-xl shadow-black/40"
+              >
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xl font-semibold">{pack.title}</h3>
+                  <span className="text-[10px] uppercase tracking-[0.5em] text-[#D4AF37]">Pack</span>
+                </div>
+                <p className="text-sm text-neutral-100 leading-relaxed">{pack.description}</p>
+                <p className="text-sm text-[#D4AF37] font-semibold">{pack.includes}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section> */}
 
       {/* CTA */}
       <section className="py-16 bg-linear-to-r from-[#4A3933] to-[#3A2923] text-white dark:from-[#2b120d] dark:via-[#190a08] dark:to-[#050302]">

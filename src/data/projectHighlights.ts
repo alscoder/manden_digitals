@@ -3,43 +3,66 @@ export type ProjectHighlight = {
   title: string;
   category: string;
   description: string;
-  impact: string;
+  shortDescription: string;
   metrics: string[];
+  stack: string[];
   coverImage: string;
+  logo: string;
 };
+
+const sharedStack = ['React', 'Tailwind', 'Next.js', 'MongoDB', 'JavaScript', 'GitHub'];
 
 export const projectHighlights: ProjectHighlight[] = [
   {
-    slug: 'real-estate-platform',
-    title: 'Plateforme Immobilier Ninja',
-    category: 'SaaS Platform',
+    slug: 'sognini',
+    title: 'Sognini | Plateforme immobilière Mali',
+    category: 'Immobilier & abonnements',
     description:
-      'Gestion de portails immobiliers avec visites virtuelles, analytics et intégrations CRM pour accélérer les ventes.',
-    impact: 'Réduction du cycle de vente de 32% grâce à la mise en avant intelligent des biens.',
-    metrics: ['+15% leads qualifiés', 'Infra résiliente multi-cloud', 'Automatisation des relances'],
-    coverImage:
-      'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80',
+      "Sognini accompagne acheteurs, locataires et agents au Mali avec un réseau vérifié de biens, abonnements pros et messagerie instantanée.",
+    shortDescription:
+      'Marketplace sécurisée pour agents et particuliers avec gestion d’abonnements, recherche de biens et suivi des visites.',
+    metrics: ['Biens vérifiés', 'Agents certifiés', 'Messagerie instantanée'],
+    stack: sharedStack,
+    coverImage: '/sognini.png',
+    logo: '/Sogninilogo.png',
   },
   {
-    slug: 'job-portal',
-    title: 'Portail Recrutement IA',
-    category: 'Web Application',
+    slug: 'ada',
+    title: 'ADA Travel & Hospitality',
+    category: 'Tourisme haut de gamme',
     description:
-      'Matching intelligent candidats ↔ postes avec scoring AI, tableau de bord RH temps réel et workflows de validation.',
-    impact: 'Taux de matching de 86% et réduction de 40% des délais d’embauche.',
-    metrics: ['Matching auto basé IA', 'Dashboard RH en temps réel', 'Workflows ATS intégrés'],
-    coverImage:
-      'https://images.unsplash.com/photo-1485217988980-11786ced9454?auto=format&fit=crop&w=1200&q=80',
+      'Expériences Omra et voyages premium avec assistance 24/7, guichets privés et logistique de haut standing.',
+    shortDescription:
+      'Portail de réservation luxe pour itinéraires Omra personnalisés, logistique et support multilingue.',
+    metrics: ['Forfaits Omra', 'Support multilingue', 'Logistique complète'],
+    stack: sharedStack,
+    coverImage: '/ada.png',
+    logo: '/adalogo.webp',
   },
   {
-    slug: 'cloud-crm',
-    title: 'CRM Cloud Intelligence',
-    category: 'Enterprise Solution',
+    slug: 'kokajobs',
+    title: 'Koka Jobs Consulting',
+    category: 'Recrutement & RH',
     description:
-      "Suite CRM personnalisée avec orchestrations marketing, analytics et automatisations intelligentes.",
-    impact: 'Automatisation de la prospection et gain de 400+ heures humaines par trimestre.',
-    metrics: ['Pipeline intelligent', 'Connecteurs API natifs', "SLA 99,95% de disponibilité"],
-    coverImage:
-      'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80',
+      'Koka Jobs connecte talents et entreprises au Mali avec matching intelligent, alertes et gestion fluide des candidatures.',
+    shortDescription:
+      'Plateforme RH complète : matching intelligent, alertes personnalisées et pipeline de candidatures suivi en temps réel.',
+    metrics: ['Matching intelligent', 'Alertes multicanal', 'Dashboard RH'],
+    stack: sharedStack,
+    coverImage: '/kokajobs.png',
+    logo: '/kokalogo.png',
+  },
+  {
+    slug: 'nkodon',
+    title: "N'KO DON | Collecte & traduction Bambara",
+    category: 'Culture & langues',
+    description:
+      "N'KO DON préserve les langues Bambara et N'Ko grâce à une archive collaborative, des traductions et des ressources éducatives.",
+    shortDescription:
+      'Bibliothèque collaborative pour la collecte linguistique, la traduction et la diffusion de ressources culturelles.',
+    metrics: ['Corpus collaboratif', 'Traductions Bambara ↔ Français', 'Ressources pédagogiques'],
+    stack: sharedStack,
+    coverImage: '/nkodon.png',
+    logo: '/nkodonlogo.png',
   },
 ];

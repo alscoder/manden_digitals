@@ -7,43 +7,42 @@ interface ServiceCardProps {
   icon: ReactNode;
   title: string;
   description: string;
+  points?: string[];
 }
 
-export function ServiceCard({ icon, title, description }: ServiceCardProps) {
+export function ServiceCard({ icon, title, description, points = [] }: ServiceCardProps) {
   return (
     <motion.div
       whileHover={{ y: -8, scale: 1.02 }}
       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-      className="bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 p-6 rounded-2xl border border-neutral-200 dark:border-neutral-700 hover:border-[#D4AF37] hover:shadow-2xl transition-all duration-300 group relative overflow-hidden"
+    className="group relative overflow-hidden rounded-3xl border border-neutral-200  bg-linear-to-br from-[#4A3933] via-[#3A2923] to-[#2A1913] p-8 text-white   shadow-xl transition duration-300 hover:border-[#D4AF37] hover:shadow-[0_0_40px_rgba(212,175,55,0.3)] dark:border-white/10 dark:bg-linear-to-br dark:from-[#0c0604] dark:via-[#1a0d08] dark:to-[#120805] dark:text-white"
     >
-      {/* Background Gradient on Hover */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/0 to-[#D4AF37]/0 group-hover:from-[#D4AF37]/5 group-hover:to-transparent transition-all duration-500" />
-      
-      <div className="relative">
+      <div className="absolute inset-0 bg-linear-to-br from-transparent via-black/20 to-black/60 opacity-0 transition duration-500 group-hover:opacity-100" />
+
+      <div className="relative space-y-4">
         <motion.div
           whileHover={{ rotate: 360, scale: 1.1 }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="w-14 h-14 rounded-xl bg-gradient-to-br from-[#D4AF37]/10 to-[#D4AF37]/5 flex items-center justify-center text-[#D4AF37] mb-4 group-hover:from-[#D4AF37] group-hover:to-[#C19F2F] group-hover:text-white transition-all duration-300 shadow-sm group-hover:shadow-lg"
+          className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center text-white shadow-lg"
         >
           {icon}
         </motion.div>
-        
-        <h3 className="text-neutral-900 dark:text-neutral-100 mb-2 group-hover:text-[#D4AF37] transition-colors duration-300">
-          {title}
-        </h3>
-        
-        <p className="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed">
-          {description}
-        </p>
-      </div>
 
-      {/* Decorative Element */}
-      <motion.div
-        initial={{ scale: 0, opacity: 0 }}
-        whileHover={{ scale: 1, opacity: 0.1 }}
-        transition={{ duration: 0.4 }}
-        className="absolute -bottom-4 -right-4 w-24 h-24 bg-[#D4AF37] rounded-full blur-2xl"
-      />
+        <h3 className="text-xl font-semibold mb-2">{title}</h3>
+
+        <p className="text-sm leading-relaxed text-neutral-200 mb-4">{description}</p>
+
+        {points.length > 0 && (
+          <ul className="space-y-2 text-sm text-neutral-300">
+            {points.map((point) => (
+              <li key={point} className="flex items-start gap-3">
+                <span className="mt-1 h-2 w-2 rounded-full bg-[#D4AF37]" aria-hidden />
+                <span>{point}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </motion.div>
   );
 }

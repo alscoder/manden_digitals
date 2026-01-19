@@ -1,12 +1,10 @@
 "use client";
 
-import Link from 'next/link';
-
 import { Button } from "@/components/Button";
 import { ImageWithFallback } from "@/components/Image";
 import { projectHighlights } from "@/data/projectHighlights";
 import { useLanguage } from "@/context/useLanguage";
-import { ArrowRight, Briefcase } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 
 export default function Projects() {
@@ -57,43 +55,63 @@ export default function Projects() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projectHighlights.map((project) => (
-              <Link
+              <motion.div
                 key={project.slug}
-                href={`/projects/${project.slug}`}
-                className="group motion-safe:hover:-translate-y-1 motion-safe:transition-transform"
+                whileHover={{ y: -6 }}
+                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-neutral-200 bg-white text-neutral-900 shadow-lg transition duration-500 hover:border-[#D4AF37] dark:border-white/5 dark:bg-neutral-900 dark:text-white dark:shadow-[0_20px_60px_rgba(0,0,0,0.7)]"
               >
-                <motion.div
-                  whileHover={{ y: -12 }}
-                  transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                  className="bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-100 rounded-2xl border border-neutral-200 dark:border-neutral-700 shadow-lg overflow-hidden"
-                >
-                  <div className="relative h-56">
-                    <ImageWithFallback
-                      src={project.coverImage}
-                      alt={project.title}
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                  </div>
-                  <div className="p-6">
-                    <span className="text-xs uppercase tracking-[0.3em] text-[#D4AF37] mb-2 block">{project.category}</span>
-                    <h3 className="text-xl font-semibold mb-3">{project.title}</h3>
-                    <p className="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed mb-4">
-                      {project.description}
+                <div className="relative h-56">
+                  <ImageWithFallback
+                    src={project.coverImage}
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-transparent" />
+                  <div className="absolute inset-0 flex flex-col justify-between px-6 py-6 opacity-0 transition duration-500 group-hover:opacity-100">
+                      <p
+                        className="text-sm leading-relaxed text-neutral-900 dark:text-white"
+                      style={{
+                        display: '-webkit-box',
+                        WebkitLineClamp: 3,
+                        WebkitBoxOrient: 'vertical',
+                        overflow: 'hidden'
+                      }}
+                    >
+                      {project.shortDescription}
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      {project.metrics.map((metric, metricIndex) => (
+                      {project.stack.map((tech) => (
                         <span
-                          key={metricIndex}
-                          className="text-xs uppercase tracking-wide bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-200 px-3 py-1 rounded-full"
+                          key={`${project.slug}-stack-${tech}`}
+                          className="text-xs uppercase tracking-wide bg-white/10 px-3 py-1 rounded-full text-white"
                         >
-                          {metric}
+                          {tech}
                         </span>
                       ))}
                     </div>
                   </div>
-                </motion.div>
-              </Link>
+                </div>
+                <div className="relative z-10 flex flex-col gap-3 px-6 py-6 bg-gradient-to-b from-white to-neutral-50 text-neutral-900 dark:from-neutral-900 dark:to-neutral-950 dark:text-white">
+                  <span className="text-xs uppercase tracking-[0.3em] text-[#D4AF37]">{project.category}</span>
+                  <h3 className="text-2xl font-semibold text-white">{project.title}</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {project.metrics.slice(0, 4).map((metric) => (
+                      <span
+                        key={`${project.slug}-badge-${metric}`}
+                        className="text-xs uppercase tracking-wide rounded-full px-3 py-1 bg-neutral-100 text-neutral-900 dark:bg-white/10 dark:text-white"
+                      >
+                        {metric}
+                      </span>
+                    ))}
+                    {project.metrics.length > 4 && (
+                      <span className="text-xs uppercase tracking-wide rounded-full px-3 py-1 bg-neutral-100 text-neutral-900 dark:bg-white/10 dark:text-white">
+                        +{project.metrics.length - 4}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>

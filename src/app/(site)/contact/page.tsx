@@ -42,7 +42,7 @@ export default function Contact() {
         {/* Background Image */}
         <div className="absolute inset-0">
           <ImageWithFallback
-            src="https://images.unsplash.com/photo-1712159018726-4564d92f3ec2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjdXN0b21lciUyMHNlcnZpY2UlMjBzdXBwb3J0fGVufDF8fHx8MTc2ODMwODY4NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+            src="https://plus.unsplash.com/premium_vector-1682305545494-b0a00e1808f7?q=80&w=1800&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Customer Support"
             className="w-full h-full object-cover opacity-30 dark:opacity-25"
           />
@@ -127,7 +127,7 @@ export default function Contact() {
                     <div>
                       <div className="text-sm text-neutral-500 dark:text-neutral-400 mb-1">{t('email')}</div>
                       <a href="mailto:info@mandendigital.com" className="text-neutral-900 dark:text-neutral-100 hover:text-[#D4AF37] transition-colors">
-                        info@mandendigital.com
+                        contact@mandendigital.com
                       </a>
                     </div>
                   </div>
@@ -139,7 +139,7 @@ export default function Contact() {
                     <div>
                       <div className="text-sm text-neutral-500 dark:text-neutral-400 mb-1">{t('phone')}</div>
                       <a href="tel:+1234567890" className="text-neutral-900 dark:text-neutral-100 hover:text-[#D4AF37] transition-colors">
-                        +1 234 567 8900
+                        +223 74 46 00 29
                       </a>
                     </div>
                   </div>

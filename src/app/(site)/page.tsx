@@ -11,7 +11,7 @@ import { Sparkles, ArrowRight, ArrowLeft, TrendingUp, Award, Code, Cloud, Users,
 import { motion } from 'motion/react';
 import Link from 'next/link';
 import { getTrainingIcon } from '@/utils/trainingIcons';
-import { div } from 'motion/react-client';
+
 
 
 const fadeInUp = {
@@ -325,17 +325,17 @@ function Home() {
                   ref={(el) => { projectCardRefs.current[index] = el; }}
                   className="snap-center min-w-70 md:min-w-[320px] lg:min-w-90"
                 >
-                  <div className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-neutral-200 bg-gradient-to-b from-white to-neutral-50 text-neutral-900 shadow-lg transition duration-500 hover:border-[#D4AF37] dark:border-white/10 dark:bg-gradient-to-b dark:from-neutral-950 dark:via-neutral-900 dark:to-neutral-900 dark:text-white dark:shadow-[0_10px_60px_rgba(0,0,0,0.7)]">
+                  <div className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-neutral-200 bg-linear-to-b from-white to-neutral-50 text-neutral-900 shadow-lg transition duration-500 hover:border-[#D4AF37] dark:border-white/10 dark:bg-linear-to-b dark:from-neutral-950 dark:via-neutral-900 dark:to-neutral-900 dark:text-white dark:shadow-[0_10px_60px_rgba(0,0,0,0.7)]">
                     <div className="relative h-56">
                       <ImageWithFallback
                         src={project.coverImage}
                         alt={project.title}
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-transparent" />
+                      <div className="absolute inset-0 bg-linear-to-b from-black/30 via-black/60 to-transparent" />
                       <div className="absolute inset-0 flex flex-col justify-between px-6 py-6 opacity-0 transition duration-500 group-hover:opacity-100">
                         <p
-                          className="text-sm leading-relaxed text-neutral-900 dark:text-white"
+                          className="text-sm leading-relaxed text-white dark:text-white"
                           style={{
                             display: '-webkit-box',
                             WebkitLineClamp: 3,
@@ -503,14 +503,14 @@ function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-20 overflow-hidden bg-gradient-to-br from-[#3f251d] via-[#2b120d] to-[#120805] text-white dark:from-[#1a0a07] dark:via-[#0f0704] dark:to-[#030202]">
+      <section className="relative py-20 overflow-hidden bg-linear-to-br from-[#3f251d] via-[#2b120d] to-[#120805] text-white dark:from-[#1a0a07] dark:via-[#0f0704] dark:to-[#030202]">
         <div className="absolute inset-0">
           <ImageWithFallback
             src="https://images.unsplash.com/photo-1703355685639-d558d1b0f63e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3b3Jrc3BhY2UlMjBkZXNpZ258ZW58MXx8fHwxNzY4MjMxOTg4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
             alt="Modern Workspace"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#4A3933]/90 to-[#3A2923]/90 dark:from-[#1b0b0a]/95 dark:to-[#080403]/95" />
+          <div className="absolute inset-0 bg-linear-to-r from-[#4A3933]/90 to-[#3A2923]/90 dark:from-[#1b0b0a]/95 dark:to-[#080403]/95" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

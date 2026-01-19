@@ -54,7 +54,6 @@ export default async function ProjectDetail({ params }: Params) {
             </div>
             <h1 className="text-4xl lg:text-5xl font-semibold mb-4">{project!.title}</h1>
             <p className="text-lg text-neutral-200 mb-6">{project!.description}</p>
-            <p className="text-sm text-neutral-200 mb-6">{project!.impact}</p>
             <div className="flex flex-wrap gap-4">
               <Button href={whatsappUrl} variant="primary">
                 <span className="inline-flex items-center gap-2">
@@ -88,7 +87,6 @@ export default async function ProjectDetail({ params }: Params) {
           </ul>
           <div className="space-y-4 text-neutral-700 dark:text-neutral-200">
             <p>{project!.description}</p>
-            <p className="text-neutral-500 dark:text-neutral-400">{project!.impact}</p>
           </div>
         </MotionDiv>
 

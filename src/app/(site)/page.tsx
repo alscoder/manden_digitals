@@ -11,6 +11,7 @@ import { Sparkles, ArrowRight, ArrowLeft, TrendingUp, Award, Code, Cloud, Users,
 import { motion } from 'motion/react';
 import Link from 'next/link';
 import { getTrainingIcon } from '@/utils/trainingIcons';
+import { div } from 'motion/react-client';
 
 
 const fadeInUp = {
@@ -60,20 +61,7 @@ function Home() {
     }
   ];
 
-  const values = [
-    {
-      title: t('valueExcellenceTitle'),
-      description: t('valueExcellenceDesc')
-    },
-    {
-      title: t('valueInnovationTitle'),
-      description: t('valueInnovationDesc')
-    },
-    {
-      title: t('valuePartnershipTitle'),
-      description: t('valuePartnershipDesc')
-    }
-  ];
+
 
   const scrollToProject = (index: number) => {
     const normalized = (index + projectHighlights.length) % projectHighlights.length;
@@ -94,7 +82,7 @@ function Home() {
   }, []);
 
   return (
-    <div>
+<div>
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-linear-to-br from-[#4A3933] via-[#3A2923] to-[#2A1913] dark:from-[#1A1412] dark:via-[#0A0402] dark:to-black">
         {/* Background Image */}
@@ -387,7 +375,7 @@ function Home() {
       </section>
 
       {/* Interactive Image Section */}
-      <section className="py-20 bg-linear-to-br from-neutral-50 to-neutral-100 dark:from-neutral-950 dark:to-neutral-900">
+      <section className="py-20 bg-linear-to-br from-neutral-50 to-neutral-100 dark:from-neutral-950 dark:to-neutral-900 overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -431,9 +419,9 @@ function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
               whileHover={{ scale: 1.02 }}
-              className="relative group"
+              className="relative group overflow-hidden"
             >
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative rounded-2xl shadow-2xl">
                 <ImageWithFallback
                   src="https://images.unsplash.com/photo-1617042375876-a13e36732a04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2Z0d2FyZSUyMGRldmVsb3BlciUyMGNvZGluZ3xlbnwxfHx8fDE3NjgzMTg5Mzd8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
                   alt="Developer Coding"
